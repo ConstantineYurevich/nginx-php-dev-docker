@@ -48,4 +48,4 @@ WORKDIR /data/http
 
 ENV HOME /data/http
 
-EXPOSE data
+VOLUME /data
