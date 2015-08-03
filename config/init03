@@ -1,0 +1,3 @@
+mkdir -p /data/logs/profiler
+chmod -R 777 /data/logs/profiler
+env | grep _ >> /etc/environment
