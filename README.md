@@ -16,3 +16,19 @@ To make this image work with your local source code you should have the followin
     /profiler
   /secure
 ```
+
+# Running image
+
+```
+docker run -v <full path to your project dir>:/data -p 80 yurevichcv/nginx-php-dev:latest
+```
+
+
+# PHPStorm Deployment Config Setup
+
+- Type: `SFTP`
+- SFTP Host: `<Docker VM Host>`
+- Port: `<Docker Container Mapped Port>`
+- User name: `root`
+- Auth type: `password`
+- Password: `root`
