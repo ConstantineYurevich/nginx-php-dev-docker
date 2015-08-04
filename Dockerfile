@@ -45,7 +45,7 @@ ADD config /config
 ADD supervisord.conf /etc/supervisor/conf.d/sshd.conf
 
 WORKDIR /data/http
-
+RUN usermod -d /data/http root
 ENV HOME /data/http
 
 VOLUME /data
