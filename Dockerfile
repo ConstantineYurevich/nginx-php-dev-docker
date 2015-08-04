@@ -9,7 +9,9 @@ RUN sed -i '/root/d' /etc/nginx/host.d/default.conf
 RUN rm /etc/nginx/conf.d/02cache.conf
 
 # Install PHP extensions
-RUN apt-get update && apt-get install -y php5-apcu
+RUN apt-get update 
+RUN apt-get install -y php5-apcu
+RUN apt-get install -y php5-ssh2
 ADD apcu.ini /etc/php5/mods-available/apcu.ini
 
 # Install Xdebug
