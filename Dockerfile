@@ -23,6 +23,8 @@ RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+# Change default login dir
+RUN echo 'cd /data/http' >> "/root/.bashrc"
 EXPOSE 22
 
 # Intall MySQL client
@@ -45,7 +47,8 @@ ADD config /config
 ADD supervisord.conf /etc/supervisor/conf.d/sshd.conf
 
 WORKDIR /data/http
-RUN usermod -d /data/http root
-ENV HOME /data/http
+
+ENV HOME /root
 
 VOLUME /data
+VOLUME /root/.ssh
