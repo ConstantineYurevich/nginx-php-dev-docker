@@ -47,6 +47,7 @@ RUN mv composer.phar /usr/local/bin/composer
 ADD config /config
 ADD supervisord.conf /etc/supervisor/conf.d/sshd.conf
 
+RUN mkdir /data/http
 WORKDIR /data/http
 
 ENV HOME /root
