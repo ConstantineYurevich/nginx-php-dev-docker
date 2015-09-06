@@ -10,6 +10,9 @@ RUN rm /etc/nginx/conf.d/02cache.conf
 
 # Install PHP extensions
 RUN apt-get update 
+RUN apt-get install -y php5-dev
+RUN apt-get install -y php-pear
+RUN apt-get install -y libpcre3-dev
 RUN apt-get install -y php5-apcu
 ADD apcu.ini /etc/php5/mods-available/apcu.ini
 
